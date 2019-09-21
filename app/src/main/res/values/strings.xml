@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"OpenWeather App"</string>
-    <string name="api_key">6d9820ac1ba4647b595c0af26ea32e59</string>
+    <string name="api_key">PUT YOUR KEY HERE</string>
     <string name="current_weather_base_url">https://api.openweathermap.org/data/2.5/weather?units=metric</string>
     <string name="forecast_weather_base_url">https://api.openweathermap.org/data/2.5/forecast?units=metric</string>
     <string name="icon_url">https://openweathermap.org/img/wn/</string>
