@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">"OpenWeather App"</string>
+    <string name="api_key">6d9820ac1ba4647b595c0af26ea32e59</string>
+    <string name="current_weather_base_url">https://api.openweathermap.org/data/2.5/weather?units=metric</string>
+    <string name="forecast_weather_base_url">https://api.openweathermap.org/data/2.5/forecast?units=metric</string>
+    <string name="icon_url">https://openweathermap.org/img/wn/</string>
+    <string name="icon_url_end">\@2x.png</string>
+    <string name="no_data_available">No Forecast found</string>
+    <string name="no_internet_connection">No Internet connection</string>
+    <!-- this is the content of the about screen inflated from the menu-->
+    <string name="about_text"> Powered by Open Weather Map API  \n
+        \n</string>
+    <!-- from here every thing is connected to settings preferences -->
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Weather Forecast Settings</string>
+    <!-- Strings for switch preference -->
+    <string name="settings_switch_label">Get location from the device</string>
+    <string name="settings_switch_key" translatable="false">device_location</string>
+    <string name="settings_switch_default" translatable="false">false</string>
+    <!-- Strings for city (q) preference -->
+    <string name="settings_city_label">city</string>
+    <string name="settings_city_key" translatable="false">name_of_city</string>
+    <string name="settings_city_default" translatable="false">New York</string>
+    <!-- Strings for number of forecast days preference -->
+    <string name="settings_forecast_days_label">Days of forecast to show</string>
+    <string name="settings_forecast_days_key" translatable="false">forecast_days</string>
+    <string name="settings_forecast_days_default" translatable="false">5</string>
+
+    <string name="query_forecast_days">cnt</string>
+    <string name="query_by_city">q</string>
+    <string name="query_by_id">id</string>
+    <string name="query_by_lat">lat</string>
+    <string name="query_by_lon">lon</string>
+    <string name="about_menu_item">About</string>
+    <string name="date_of_forecast">Date of Forecast</string>
+    <string name="min_temp_title">Min. Temperature: </string>
+    <string name="max_temp_title">Max. Temperature: </string>
+    <string name="temp_temp">…</string>
+    <string name="conditions">Weather Conditions: </string>
+    <string name="humidity_title">Humidity: </string>
+    <string name="forecast_title">"Weather forecast for "</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="current_temp">Current temp:</string>
+    <string name="avarage_temp">Average temp:</string>
+    <string name="current_weather">Current weather</string>
+    <string name="current_wind_kph">Current wind kph:</string>
+    <string name="widget_description">forecast</string>
+    <string name="time_of_forecast">Time of forecast:</string>
+    <string name="humidity">Humidity:</string>
+    <string name="wind">Wind speed:</string>
+    <string name="wind_dir">Wind degree:</string>
+    <string name="title_activity_setting">App settings</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="forecast_icon">forecast icon</string>
+    <string name="time_of_data">Time of data:</string>
+    <string name="current_wind_degree">Current wind degree:</string>
+</resources>
