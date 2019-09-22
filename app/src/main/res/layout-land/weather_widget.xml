@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background_main"
     android:layout_gravity="left"
-    android:textDirection="ltr"
+    android:layoutDirection="ltr"
     android:id="@+id/widget_layout">
 
     <ImageView
@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
+        android:layout_below="@id/current_city"
         android:scaleType="fitCenter"
         tools:src="@drawable/sun_icon1"
         android:contentDescription="@string/forecast_icon" />
@@ -36,7 +37,7 @@
         android:id="@+id/current_temp"
         style="@style/widgetText"
         tools:text="10c"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@id/current_city"/>
 
     <TextView
@@ -44,7 +45,6 @@
         style="@style/widgetText"
         tools:text="00:00"
         android:layout_below="@id/current_city"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@id/current_temp" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

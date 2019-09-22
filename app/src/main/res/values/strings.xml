@@ -55,4 +55,5 @@
     <string name="forecast_icon">forecast icon</string>
     <string name="time_of_data">Time of data:</string>
     <string name="current_wind_degree">Current wind degree:</string>
+    <string name="icon_for_weather">icon for weather</string>
 </resources>

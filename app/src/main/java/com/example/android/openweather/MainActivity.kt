@@ -17,6 +17,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.core.view.ViewCompat
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -108,7 +110,11 @@ class MainActivity : AppCompatActivity() , LoaderManager.LoaderCallbacks<List<Fo
             currentTempView.text = tempCString
             val wind = currentWeather[0].windSpeed + " kph"
             currentWindView.text = wind
-            val windDeg = currentWeather[0].windDeg + "\u00B0"
+             var windDeg = currentWeather[0].windDeg
+            // rounding the windDir number and adding degree sign
+            val windD = java.lang.Float.parseFloat(windDeg)
+            val windDi = windD.roundToInt() // to get a rounded temp number
+            windDeg = "$windDi \u00B0"
             currentWindDirView.text = windDeg
             val humidityText = currentWeather[0].humidity + "%"
             currentHumidityView.text = humidityText
@@ -124,7 +130,7 @@ class MainActivity : AppCompatActivity() , LoaderManager.LoaderCallbacks<List<Fo
             // set the background and text color to fit day or night
             val isDay = currentWeather[0].isDay
             if (isDay) {
-                currentLayout.setBackgroundResource(R.color.light_blue)
+                currentLayout.setCardBackgroundColor(resources.getColor(R.color.light_blue))
                 currentTitle.setTextColor(resources.getColor(R.color.colorPrimary))
                 currentDateView.setTextColor(resources.getColor(R.color.colorPrimary))
                 currentTimeView.setTextColor(resources.getColor(R.color.text_color))
@@ -140,7 +146,7 @@ class MainActivity : AppCompatActivity() , LoaderManager.LoaderCallbacks<List<Fo
                 currentHumidityTitle.setTextColor(resources.getColor(R.color.text_color))
                 currentConditionTitle.setTextColor(resources.getColor(R.color.text_color))
             } else {
-                currentLayout.setBackgroundResource(R.color.night_blue)
+                currentLayout.setCardBackgroundColor(resources.getColor(R.color.night_blue))
                 currentTitle.setTextColor(resources.getColor(R.color.night_title))
                 currentDateView.setTextColor(resources.getColor(R.color.night_title))
                 currentTimeView.setTextColor(resources.getColor(R.color.night_text))
@@ -167,7 +173,7 @@ class MainActivity : AppCompatActivity() , LoaderManager.LoaderCallbacks<List<Fo
     private lateinit var connMgr :ConnectivityManager
     // get details on the currently active default data network
     private var isConnected: Boolean = false
-    private lateinit var currentLayout: RelativeLayout
+    private lateinit var currentLayout: CardView
     private lateinit var currentDateView: TextView
     private lateinit var currentTitle: TextView
     private lateinit var currentTimeView: TextView
@@ -204,7 +210,7 @@ class MainActivity : AppCompatActivity() , LoaderManager.LoaderCallbacks<List<Fo
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // set the views values from the layout file
-        currentLayout = findViewById(R.id.current_layout)
+        currentLayout = findViewById(R.id.current_card_view)
         currentTitle = findViewById(R.id.current_title)
         currentDateView = findViewById(R.id.current_date)
         currentTimeView = findViewById(R.id.current_time_text)
@@ -236,6 +242,7 @@ class MainActivity : AppCompatActivity() , LoaderManager.LoaderCallbacks<List<Fo
         val layoutManager = LinearLayoutManager(this)
         listView.layoutManager = layoutManager
         listView.itemAnimator = DefaultItemAnimator()
+        ViewCompat.setNestedScrollingEnabled(listView,true) // scroll with the NestedScrollView
         // set the adapter on the listView (this time - recyclerView)
         listView.adapter = mAdapter
         // get a reference to the LoaderManager, in order to interact with loaders

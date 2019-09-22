@@ -20,6 +20,7 @@ import com.example.android.openweather.AppConstants.ACTION_UPDATE_WEATHER_WIDGET
 import java.io.File
 import com.example.android.openweather.AppConstants.SHARED_PREFERENCES
 import com.example.android.openweather.AppConstants.URI_SCHEME
+import kotlin.math.roundToInt
 
 /**
  * Implementation of App Widget functionality.
@@ -147,7 +148,7 @@ class WeatherWidgetProvider : AppWidgetProvider() {
             )
             // initialize the values to put in the widget
             var time = "-"
-            var widgetTemp = "-"
+            var widgetTemp: String
             val weatherIcon = R.drawable.sun_icon1
             var city = "-"
             var isDay = true
@@ -163,7 +164,7 @@ class WeatherWidgetProvider : AppWidgetProvider() {
                 time = weather.timeString
                 val temp = weather.tempC
                 val curTemp = java.lang.Float.parseFloat(temp)
-                val currTemp = Math.round(curTemp) // to get a rounded temp number
+                val currTemp = curTemp.roundToInt() // to get a rounded temp number
                 widgetTemp = "$currTemp \u2103"
                 isDay = weather.isDay
             }
@@ -225,7 +226,7 @@ class WeatherWidgetProvider : AppWidgetProvider() {
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
             var time = ""
-            var widgetTemp = "-"
+            var widgetTemp: String
             var conditions = "-"
             val weatherIcon = R.drawable.sun_icon1
             var city = "-"
@@ -245,11 +246,15 @@ class WeatherWidgetProvider : AppWidgetProvider() {
                 humidity += "%"
                 // adding kph to the wind string
                 wind = weather.windSpeed + " kph"
-                windDir = weather.windDeg + "\u00B0"
+                windDir = weather.windDeg
+                // rounding the windDir number and adding degree sign
+                val windD = java.lang.Float.parseFloat(windDir)
+                val windDi = windD.roundToInt() // to get a rounded temp number
+                windDir = "$windDi \u00B0"
                 time = weather.timeString
                 widgetTemp = weather.tempC
                 val curTemp = java.lang.Float.parseFloat(widgetTemp)
-                val currTemp = Math.round(curTemp) // to get a rounded temp number
+                val currTemp = curTemp.roundToInt() // to get a rounded temp number
                 widgetTemp = "$currTemp \u2103" // adding celsius sign to the number
                 conditions = weather.mainConditions
                 isDay = weather.isDay

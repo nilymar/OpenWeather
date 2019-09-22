@@ -8,14 +8,14 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="true">
         <service
             android:name=".WidgetUpdateJobIntentService"
             android:exported="true"
@@ -27,7 +27,7 @@
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver
-            android:name=".WeatherWidgetProvider"
+            android:name=".WeatherWidgetProvider" android:label="OpenWeather widget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -39,7 +39,7 @@
         </receiver>
 
         <receiver
-            android:name=".WeatherWideWidgetProvider" android:label="wide widget"
+            android:name=".WeatherWideWidgetProvider" android:label="OpenWeather widget"
             android:previewImage="@drawable/wide_widget"
             android:exported="true">
             <intent-filter>

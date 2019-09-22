@@ -57,7 +57,7 @@ class WeatherAdapter// this is the constructor for the Weather object adapter
         fun bindWeathers(currentWeather: ForecastWeather) {
             forecastLayout!!.visibility = View.VISIBLE
             if (currentWeather.isDay) {
-                forecastLayout!!.setBackgroundResource(R.color.day_background)
+                cardView!!.setCardBackgroundColor(mContext!!.resources.getColor(R.color.day_background))
                 forecastDate!!.setTextColor(mContext!!.resources.getColor(R.color.text_color))
                 minTemp!!.setTextColor(mContext!!.resources.getColor(R.color.text_color))
                 minTempField!!.setTextColor(mContext!!.resources.getColor(R.color.text_color))
@@ -68,7 +68,7 @@ class WeatherAdapter// this is the constructor for the Weather object adapter
                 humidity!!.setTextColor(mContext!!.resources.getColor(R.color.text_color))
                 humidityField!!.setTextColor(mContext!!.resources.getColor(R.color.text_color))
             } else {
-                forecastLayout!!.setBackgroundResource(R.color.night_background)
+                cardView!!.setCardBackgroundColor(mContext!!.resources.getColor(R.color.night_background))
                 forecastDate!!.setTextColor(mContext!!.resources.getColor(R.color.night_text))
                 minTemp!!.setTextColor(mContext!!.resources.getColor(R.color.night_text))
                 minTempField!!.setTextColor(mContext!!.resources.getColor(R.color.night_text))

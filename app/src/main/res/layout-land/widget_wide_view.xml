@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:background="@color/background_main"
-    android:textDirection="ltr">
+    android:layoutDirection="ltr">
 
     <ImageView
         android:id="@+id/widget_background"
@@ -21,7 +21,8 @@
         android:layout_centerInParent="true"
         android:scaleType="fitCenter"
         tools:src="@drawable/sun_icon1"
-        android:contentDescription="@string/forecast_icon" />
+        android:contentDescription="@string/forecast_icon"
+        android:layout_below="@id/current_city"/>
 
     <TextView
         android:id="@+id/current_city"
@@ -66,8 +67,8 @@
     <TextView
         android:id="@+id/conditions"
         style="@style/widgetText"
-        android:layout_below="@id/current_temp"
-        android:layout_toRightOf="@id/conditions_title"
+        android:layout_below="@id/humidity"
+        android:layout_toEndOf="@id/conditions_title"
         tools:text="@string/temp_temp" />
 
     <TextView
