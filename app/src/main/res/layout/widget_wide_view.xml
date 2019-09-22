@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:background="@color/background_main"
-    android:textDirection="ltr">
+    android:layoutDirection="ltr">
 
     <ImageView
         android:id="@+id/widget_background"
