@@ -53,10 +53,9 @@ class TextAutoCompletePreferenceDialogFragment : PreferenceDialogFragmentCompat(
         super.onBindDialogView(view)
         // finding the numberPicker view
         mAutoCompleteTextView = view.findViewById(R.id.auto_complete)
-        mAutoCompleteTextView!!.setSelectAllOnFocus(true)
-        // the places that will auto appear when typing similar strings
-        var PLACES = arrayOfNulls<String>(0)
+        mAutoCompleteTextView!!.setSelectAllOnFocus(true)        
         var baseObj: JSONObject? = null
+        // the places that will auto appear when typing similar strings
         val places = ArrayList<String>()
         var name: String
         var country: String
@@ -78,20 +77,12 @@ class TextAutoCompletePreferenceDialogFragment : PreferenceDialogFragmentCompat(
                     places.add("$name, $country")
                 }
             }
-
-
-            PLACES = arrayOfNulls(places.size)
-            var i = 0
-            val count = places.size
-            while (i < count) {
-                PLACES[i] = places[i]
-                i++
-            }
+            
         }
-        if (PLACES.isNotEmpty()) {
+        if (places.isNotEmpty()) {
             val adapter = ArrayAdapter(
                 context!!,
-                android.R.layout.simple_dropdown_item_1line, PLACES
+                android.R.layout.simple_dropdown_item_1line, places
             )
             mAutoCompleteTextView!!.setAdapter(adapter)
         }
